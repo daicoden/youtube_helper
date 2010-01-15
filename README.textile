@@ -1,0 +1,8 @@
+h1. Usage
+
+Run ./example.rb
+
+You can then view the code to see the workings, contains both a chromeless and chromefull version.
+
+Check out http://code.google.com/apis/youtube/js_api_reference.html for additional reference.
+
