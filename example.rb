@@ -10,6 +10,14 @@ get "/" do
   haml :index
 end
 
+get '/chromeless' do
+  haml :chromeless
+end
+
+get '/chromefull' do
+  haml :chromefull
+end
+
 get '/js/:file' do
   File.open(File.dirname(__FILE__) + "/#{params[:file]}") do |f|
     f.read
@@ -18,12 +26,38 @@ end
 
 __END__
 
+@@chromefull
+%html
+  %head
+    %title Youtube Test: Chromefull
+    %script{ :src => 'js/swfobject.js' }
+    %script{ :src => 'js/youtube-helper.js' }
+  %body
+    = yt_player(:video_id => '6sxXgj--s9M')
+    = yt_register_state_callback("testCallback");
+    %script
+      function testCallback(state) { alert("State is: " + state); }
+
+@@chromeless
+%html
+  %head
+    %title Youtube Test: Chromeless
+    %script{ :src => 'js/swfobject.js' }
+    %script{ :src => 'js/youtube-helper.js' }
+  %body
+    = yt_player(:chromeless, :video_id => '6sxXgj--s9M')
+    = yt_play_btn
+    = yt_pause_btn
+    = yt_register_state_callback("testCallback");
+    %script
+      function testCallback(state) { alert("State is: " + state); }
+
 @@index
 %html
   %head
     %title Youtube Test
-    %script{ :src => 'js/swfobject.js' }
-    %script{ :src => 'js/youtube-helper.js' }
   %body
-    woo
+    %a{ :href => '/chromefull'} chromefull
+    %br
+    %a{ :href => '/chromeless'} chromeless
 
