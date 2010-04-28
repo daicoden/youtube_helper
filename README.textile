@@ -6,3 +6,8 @@ You can then view the code to see the workings, contains both a chromeless and c
 
 Check out http://code.google.com/apis/youtube/js_api_reference.html for additional reference.
 
+h2. Install
+
+* Move the contents of the JS folder into your webapps js directory
+* Require the js files in your layout
+* reuire lib/youtube_helper.rb in your environment 
