@@ -11,8 +11,8 @@ def yt_player(*args)
   player_opts = gen_player_opts(opts)
  
   player_opts[:swfUrlStr] = case mode
-    when :default:    "http://www.youtube.com/v/#{opts[:video_id]}?enablejsapi=1"
-    when :chromeless: "http://www.youtube.com/apiplayer?enablejsapi=1"
+    when :default    then "http://www.youtube.com/v/#{opts[:video_id]}?enablejsapi=1"
+    when :chromeless then "http://www.youtube.com/apiplayer?enablejsapi=1"
     else raise NotImplementedError, mode.to_s
   end
 
